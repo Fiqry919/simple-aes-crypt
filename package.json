@@ -2,7 +2,8 @@
   "name": "simple-aes-crypt",
   "version": "1.0.0",
   "description": "simple aes encrypt/decrypt",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "node ./dist/Example/example.js"
