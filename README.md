@@ -9,6 +9,12 @@ npm install simple-aes-crypt
 ## Usage
 
 ```javascript
+const SimpleAes = require("simple-aes-crypt").SimpleAes;
+```
+
+ES module
+
+```javascript
 import { SimpleAes } from "simple-aes-crypt";
 ```
 

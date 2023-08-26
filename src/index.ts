@@ -4,6 +4,10 @@ declare type Bytes = 16 | 32 | 64 | 128
 
 declare interface Options { key: string, size?: Bytes, bit?: Nbits }
 
+const Tbytes = [16, 32, 64, 128]
+
+const Tbits = [128, 192, 256]
+
 export class SimpleAes extends Aes {
 
     /**
@@ -29,6 +33,19 @@ export class SimpleAes extends Aes {
     }
 
     /**
+     * instance type validation
+     * @param n parameter
+     * @param x type
+     * @returns boolean
+     */
+    private instanceOf(n: any[], x: any): boolean {
+        for (const l of n) {
+            if (l === x) return true
+        }
+        return false
+    }
+
+    /**
      * 
      * @param s size of bytes
      * @returns 
@@ -48,6 +65,9 @@ export class SimpleAes extends Aes {
      * @returns encryption
      */
     encrypt(i: any): string {
+        var s: boolean = this.instanceOf(Tbytes, this.size)
+        var b: boolean = this.instanceOf(Tbits, this.nBits)
+        if (!s || !b) return `invalid of ${!s ? "size" : "bit"}`
         var p = this.randomBytes(this.size);
         var c = this.e(JSON.stringify(i), p + this.key, this.nBits);
         return p + c;
@@ -59,6 +79,9 @@ export class SimpleAes extends Aes {
      * @returns decryption
      */
     decrypt(e: string): any {
+        var s: boolean = this.instanceOf(Tbytes, this.size)
+        var b: boolean = this.instanceOf(Tbits, this.nBits)
+        if (!s || !b) return `invalid of ${!s ? "size" : "bit"}`
         var p = e.substring(0, this.size);
         var d = e.substring(this.size);
         return JSON.parse(this.d(d, p + this.key, this.nBits));
