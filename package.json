@@ -1,6 +1,6 @@
 {
   "name": "simple-aes-crypt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "simple aes encrypt/decrypt",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
