@@ -1,0 +1,20 @@
+{
+  "name": "simple-aes-crypt",
+  "version": "1.0.0",
+  "description": "simple aes encrypt/decrypt",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./dist/Example/example.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/utf8": "^3.0.1",
+    "utf8": "^3.0.0"
+  }
+}
