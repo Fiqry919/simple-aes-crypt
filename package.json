@@ -1,5 +1,5 @@
 {
-  "name": "simple-aes-crypt",
+  "name": "simple-aes-crypto",
   "version": "1.0.3",
   "description": "simple aes encrypt/decrypt",
   "main": "./dist/index.js",
@@ -10,10 +10,10 @@
   },
   "keywords": [
     "aes",
+    "crypto",
     "aes 256 bit",
     "encryption",
-    "decryption",
-    "crypto"
+    "decryption"
   ],
   "author": "trackingx",
   "license": "ISC",
