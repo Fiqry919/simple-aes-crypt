@@ -8,8 +8,14 @@
     "build": "tsc",
     "test": "node ./dist/Example/example.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "aes",
+    "aes 256 bit",
+    "encryption",
+    "decryption",
+    "crypto"
+  ],
+  "author": "trackingx",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.2.2"
