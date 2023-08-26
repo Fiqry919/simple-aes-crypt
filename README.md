@@ -3,19 +3,19 @@
 [`NPM`](https://www.npmjs.com/):
 
 ```bash
-npm install simple-aes-crypt
+npm install simple-aes-crypto
 ```
 
 ## Usage
 
 ```javascript
-const SimpleAes = require("simple-aes-crypt").SimpleAes;
+const SimpleAes = require("simple-aes-crypto").SimpleAes;
 ```
 
 ES module
 
 ```javascript
-import { SimpleAes } from "simple-aes-crypt";
+import { SimpleAes } from "simple-aes-crypto";
 ```
 
 ### Example
