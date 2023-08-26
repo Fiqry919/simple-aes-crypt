@@ -1,9 +1,9 @@
 import utf8 from "utf8"
 import { Block } from "../Block";
 
-export declare type Nbits = 128 | 192 | 256
+export declare type Nbits = 192 | 256
 
-declare type BlockSize = 16
+declare type BlockSize = 16 | 32 | 64 | 128
 
 export class Aes extends Block {
 

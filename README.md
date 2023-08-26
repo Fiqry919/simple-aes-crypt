@@ -36,8 +36,8 @@ const aes = new SimpleAes({ key: "YOURKEY" });
 const encrypt = aes.encrypt([123, "any", "random", 456]);
 const decrypt = aes.decrypt(encrypt);
 
-// new define, and also you can customize size & bit, by default is size: 16 & bit: 256
-const newAes = new SimpleAes({ key: "WRONGKEY", size: 128 });
+// new define, and also you can customize bit 192 or 256, by default is bit: 256
+const newAes = new SimpleAes({ key: "WRONGKEY", bit: 192 });
 const newEncrypt = aes.encrypt("Anything you want encrypt");
 const newDecrypt = newAes.decrypt(newEncrypt);
 

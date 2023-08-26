@@ -134,6 +134,19 @@ export class Block {
     }
 
     /**
+     * instance type validation
+     * @param n parameter
+     * @param x type
+     * @returns boolean
+     */
+    protected static instanceOf(n: any[], x: any): boolean {
+        for (const l of n) {
+            if (l === x) return true
+        }
+        return false
+    }
+
+    /**
      * 
      * @param key 
      * @returns 
