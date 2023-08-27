@@ -6,6 +6,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "publish": "npm publish",
+    "update:publish": "npm version patch && npm publish",
     "test": "node ./dist/Example/example.js"
   },
   "keywords": [
