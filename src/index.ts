@@ -68,7 +68,7 @@ export class SimpleAes extends Aes {
     decrypt(e: string): any {
         const s: boolean = this.instance.instanceOf(Tbytes, this.size)
         const b: boolean = this.instance.instanceOf(Tbits, this.nBits)
-        if (!s || !b) return `invalid of ${!s ? "size" : "bit"}`
+        if (!s || !b || typeof e != "string") return `invalid of ${typeof e != "string" ? "encryption" : !s ? "size" : "bit"}`
         var p = e.substring(0, this.size);
         var d = e.substring(this.size);
         return JSON.parse(this.d(d, p + this.key, this.nBits));
