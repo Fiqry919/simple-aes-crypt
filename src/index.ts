@@ -6,7 +6,34 @@ const Tbits = [192, 256]
 
 declare type Bytes = 16 | 32 | 64 | 128
 
-declare interface Options { key: string, bit?: Nbits }
+declare interface Options {
+    /**
+     * your secret key
+     */
+    key: string,
+    /**
+     * sowing salt, by default random with 16 character
+     */
+    salt?: string,
+    /**
+     * Support 192 or 256, by default is 256
+     */
+    bit?: Nbits
+}
+
+/**
+ * Generate random string with specific length
+ * @param length 
+ * @returns 
+ */
+export function randomString(length: number): string {
+    let r: string = ""
+    let c: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    for (let i = 0; i < length; i++) {
+        r += c.charAt(Math.floor(Math.random() * c.length));
+    }
+    return r
+}
 
 export class SimpleAes extends Aes {
 
@@ -14,6 +41,11 @@ export class SimpleAes extends Aes {
      * Key
      */
     private readonly key: string
+
+    /**
+     * Salt
+     */
+    private readonly salt: string
 
     /**
      * Size
@@ -29,6 +61,7 @@ export class SimpleAes extends Aes {
         super()
         this.key = options.key
         this.size = Tbytes[0] as Bytes
+        this.salt = options.salt ? this.split(options.salt) : this.randomBytes(this.size)
         this.nBits = options.bit ? options.bit : 256
     }
 
@@ -47,6 +80,19 @@ export class SimpleAes extends Aes {
     }
 
     /**
+     * Spliter
+     */
+    private split(s: string): string {
+        let l: number = s.length
+        if (l > 16) {
+            s = s.substring(0, 16)
+        } else {
+            s = s + this.randomBytes((16 - l) as Bytes)
+        }
+        return s
+    }
+
+    /**
      * 
      * @param i any input
      * @returns encryption
@@ -55,7 +101,7 @@ export class SimpleAes extends Aes {
         const s: boolean = this.instance.instanceOf(Tbytes, this.size)
         const b: boolean = this.instance.instanceOf(Tbits, this.nBits)
         if (!s || !b) return `invalid of ${!s ? "size" : "bit"}`
-        var p = this.randomBytes(this.size);
+        var p = this.salt
         var c = this.e(JSON.stringify(i), p + this.key, this.nBits);
         return p + c;
     }

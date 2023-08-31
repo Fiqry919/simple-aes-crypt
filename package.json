@@ -6,10 +6,11 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "release:patch": "npm run build && npm version patch",
-    "release:minor": "npm run build && npm version minor",
-    "release:major": "npm run build && npm version major",
-    "test": "node ./dist/Example/example.js"
+    "release:patch": "npm run build && git add . && git commit && npm version patch",
+    "release:minor": "npm run build && git add . && git commit && npm version minor",
+    "release:major": "npm run build && git add . && git commit && npm version major",
+    "test": "node ./dist/Example/example.js",
+    "test:dev": "ts-node ./src/Example/example.ts"
   },
   "keywords": [
     "aes",

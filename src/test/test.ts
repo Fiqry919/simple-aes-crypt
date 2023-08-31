@@ -18,3 +18,28 @@ type SN = typeof Str
 
 type StringToTuple<S extends string> = S extends `${S[0]}${infer Rest}` ? [S, ...StringToTuple<Rest>] : []
 type LengthOfString<S extends string> = StringToTuple<S>['length'];
+
+function randomBytes(s: number): string {
+    let r: string = ""
+    let c: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    for (let i = 0; i < s; i++) {
+        r += c.charAt(Math.floor(Math.random() * c.length));
+    }
+    return r
+}
+
+function salt(s: string): string {
+    let l: number = s.length
+    if (l > 16) {
+        s = s.substring(0, 16)
+    } else {
+        s = s + randomBytes(16 - l)
+    }
+    return s
+}
+
+const sample: string = randomBytes(120)
+const cut: string = salt(sample)
+console.log({ sample, l: sample.length });
+console.log({ cut, l: cut.length });
+
