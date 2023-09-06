@@ -22,10 +22,8 @@
   "author": "trackingx",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
     "@types/utf8": "^3.0.1",
+    "typescript": "^5.2.2",
     "utf8": "^3.0.0"
   }
 }

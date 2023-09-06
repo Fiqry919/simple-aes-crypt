@@ -21,7 +21,7 @@ import SimpleAes from "simple-aes-crypto";
 ### Example
 
 ```javascript
-import SimpleAes from "../";
+import SimpleAes from "simple-aes-crypto";
 
 const aes = new SimpleAes({
   key: "YOURSECRETKEY",
@@ -38,7 +38,7 @@ console.log("decrypt:", decrypt); // decrypt:  { data: [ 123, 'any', 'random', 4
 ### Example 2
 
 ```javascript
-import SimpleAes from "../";
+import SimpleAes from "simple-aes-crypto";
 
 const aes = new SimpleAes({
   key: "YOURSECRETKEY",
