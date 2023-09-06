@@ -35,7 +35,7 @@ export function randomString(length: number): string {
     return r
 }
 
-export class SimpleAes extends Aes {
+export default class SimpleAes extends Aes {
 
     /**
      * Key
@@ -61,35 +61,8 @@ export class SimpleAes extends Aes {
         super()
         this.key = options.key
         this.size = Tbytes[0] as Bytes
-        this.salt = options.salt ? this.split(options.salt) : this.randomBytes(this.size)
+        this.salt = options.salt ? this.instance.split(options.salt) : this.instance.randomBytes(this.size)
         this.nBits = options.bit ? options.bit : 256
-    }
-
-    /**
-     * 
-     * @param s size of bytes
-     * @returns 
-     */
-    private randomBytes(s: Bytes): string {
-        let r: string = ""
-        let c: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-        for (let i = 0; i < s; i++) {
-            r += c.charAt(Math.floor(Math.random() * c.length));
-        }
-        return r
-    }
-
-    /**
-     * Spliter
-     */
-    private split(s: string): string {
-        let l: number = s.length
-        if (l > 16) {
-            s = s.substring(0, 16)
-        } else {
-            s = s + this.randomBytes((16 - l) as Bytes)
-        }
-        return s
     }
 
     /**
@@ -101,9 +74,8 @@ export class SimpleAes extends Aes {
         const s: boolean = this.instance.instanceOf(Tbytes, this.size)
         const b: boolean = this.instance.instanceOf(Tbits, this.nBits)
         if (!s || !b) return `invalid of ${!s ? "size" : "bit"}`
-        var p = this.salt
-        var c = this.e(JSON.stringify(i), p + this.key, this.nBits);
-        return p + c;
+        var c = this.e(JSON.stringify(i), this.salt + this.key, this.nBits);
+        return this.salt + c;
     }
 
     /**

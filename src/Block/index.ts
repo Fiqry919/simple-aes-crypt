@@ -1,6 +1,8 @@
 
 declare type E = any | any[]
 
+declare type Bytes = 16 | 32 | 64 | 128
+
 export class Block {
 
     protected readonly instance: typeof Block = this.constructor as typeof Block
@@ -214,5 +216,32 @@ export class Block {
         for (var i = 0; i < 4 * Nb; i++) output[i] = state[i % 4][Math.floor(i / 4)];
 
         return output;
+    }
+
+    /**
+     * Spliter
+     */
+    protected static split(s: string): string {
+        let l: number = s.length
+        if (l > 16) {
+            s = s.substring(0, 16)
+        } else {
+            s = s + this.randomBytes((16 - l) as Bytes)
+        }
+        return s
+    }
+
+    /**
+     * 
+     * @param s size of bytes
+     * @returns 
+     */
+    protected static randomBytes(s: Bytes): string {
+        let r: string = ""
+        let c: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        for (let i = 0; i < s; i++) {
+            r += c.charAt(Math.floor(Math.random() * c.length));
+        }
+        return r
     }
 }

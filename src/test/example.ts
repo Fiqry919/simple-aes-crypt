@@ -1,7 +1,7 @@
-import { SimpleAes, randomString } from "../";
+import SimpleAes, { randomString } from "..";
 
 const aes = new SimpleAes({ key: "YOURSECRETKEY", salt: randomString(16), bit: 256 });
-const encrypt = aes.encrypt({ json: [123, "any", "random", 456] });
+const encrypt = aes.encrypt({ data: [123, "any", "random", 456] });
 const decrypt = aes.decrypt(encrypt);
 
 // Define new for invalid output
@@ -11,7 +11,7 @@ const newDecrypt = newAes.decrypt(newEncrypt);
 
 // Valid
 console.log("encrypt:", encrypt); // encrypt: nE7W6IAVLHc4fLw8QgDjDhz372TbxpvIQiM2HX2Q/pqSgrXsq3xLvbAt9UY/bg7hLhgBpdw=
-console.log("decrypt:", decrypt); // decrypt:  { json: [ 123, 'any', 'random', 456 ] }
+console.log("decrypt:", decrypt); // decrypt:  { data: [ 123, 'any', 'random', 456 ] }
 
 // Invalid
 console.log("encrypt:", newEncrypt); // encrypt: nE7W6IAVLHc4fLw8RQBRUBz372SkSsOFnhkMx+r61L3rc+X4jEABehZV3UkyOYg=

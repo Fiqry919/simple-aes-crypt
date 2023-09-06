@@ -9,8 +9,8 @@
     "release:patch": "npm run build && git add . && git commit && npm version patch",
     "release:minor": "npm run build && git add . && git commit && npm version minor",
     "release:major": "npm run build && git add . && git commit && npm version major",
-    "test": "node ./dist/Example/example.js",
-    "test:dev": "ts-node ./src/Example/example.ts"
+    "test": "node ./dist/lib/test/example.js",
+    "test:dev": "ts-node ./src/test/example.ts"
   },
   "keywords": [
     "aes",
