@@ -2,14 +2,14 @@
   "name": "simple-aes-crypto",
   "version": "2.0.4",
   "description": "simple aes encrypt/decrypt",
-  "main": "./dist/lib/index.js",
-  "types": "./dist/bin/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "release:patch": "npm run build && git add . && git commit && npm version patch",
     "release:minor": "npm run build && git add . && git commit && npm version minor",
     "release:major": "npm run build && git add . && git commit && npm version major",
-    "test": "node ./dist/lib/test/example.js",
+    "test": "node ./dist/test/example.js",
     "test:dev": "ts-node ./src/test/example.ts"
   },
   "keywords": [
@@ -19,7 +19,7 @@
     "encryption",
     "decryption"
   ],
-  "author": "trackingx",
+  "author": "trackingX",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.2.2"
