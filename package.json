@@ -1,6 +1,6 @@
 {
   "name": "simple-aes-crypto",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "simple aes encrypt/decrypt",
   "license": "MIT",
   "main": "./dist/index.js",
