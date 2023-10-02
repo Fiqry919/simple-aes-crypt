@@ -2,6 +2,7 @@
   "name": "simple-aes-crypto",
   "version": "2.0.5",
   "description": "simple aes encrypt/decrypt",
+  "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -12,6 +13,9 @@
     "test": "node ./dist/test/example.js",
     "test:dev": "ts-node ./src/test/example.ts"
   },
+  "engines": {
+    "node": ">=16.18"
+  },
   "keywords": [
     "aes",
     "crypto",
@@ -19,8 +23,6 @@
     "encryption",
     "decryption"
   ],
-  "author": "trackingX",
-  "license": "ISC",
   "devDependencies": {
     "typescript": "^5.2.2"
   },
