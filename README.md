@@ -1,7 +1,7 @@
 ##
 [![NPM Version](https://img.shields.io/npm/v/simple-aes-crypto.svg)](https://www.npmjs.org/package/simple-aes-crypto)
 [![license](https://img.shields.io/npm/l/simple-aes-crypto)](https://www.npmjs.org/package/simple-aes-crypto)
-[![Downloads](https://badgen.net/npm/dt/simple-aes-crypto)](https://www.npmjs.com/package/simple-aes-crypto)
+[![Downloads](https://img.shields.io/npm/dt/simple-aes-crypto)](https://www.npmjs.com/package/simple-aes-crypto)
 [![Install Size](https://packagephobia.now.sh/badge?p=simple-aes-crypto)](https://packagephobia.now.sh/result?p=simple-aes-crypto)
 
 
