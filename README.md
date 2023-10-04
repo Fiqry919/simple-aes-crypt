@@ -10,8 +10,6 @@
 ```bash
 npm install simple-aes-crypto
 ```
-
-## Usage
 Common JS
 ```javascript
 const SimpleAes = require("simple-aes-crypto").default;
@@ -38,7 +36,7 @@ const encrypt = aes.encrypt({ foo: ["Cat", "Dog"] });
 const decrypt = aes.decrypt(encrypt);
 
 console.log("encrypt:", encrypt); // encrypt: nE7W6IAVLHc4fLw8QgDjDhz372TbxpvIQiM2HX2Q/pqSgrXsq3xLvbAt9UY/bg7hLhgBpdw=
-console.log("decrypt:", decrypt); // decrypt:  { foo: ["Cat", "Dog"] }}
+console.log("decrypt:", decrypt); // decrypt:  { foo: ["Cat", "Dog"] }
 ```
 <br/>
 
@@ -66,11 +64,32 @@ const newDecrypt = newAes.decrypt(newEncrypt);
 
 // Valid
 console.log({ encrypt }); // encrypt: nE7W6IAVLHc4fLw8QgDjDhz372TbxpvIQiM2HX2Q/pqSgrXsq3xLvbAt9UY/bg7hLhgBpdw=
-console.log({ decrypt }); // decrypt:  { foo: ["Cat", "Dog"]} }
+console.log({ decrypt }); // decrypt:  { foo: ["Cat", "Dog"] }
 
 // Invalid
 console.log({ newEncrypt }); // encrypt: nE7W6IAVLHc4fLw8RQBRUBz372SkSsOFnhkMx+r61L3rc+X4jEABehZV3UkyOYg=
 console.log({ newDecrypt }); // decrypt: Invalid continuation byte
+```
+### Usage
+Suggestions usage with function to maximize random results. Here's an example:
+```javascript
+import SimpleAes from "simple-aes-crypto";
+
+function encrypt(data) {
+  const aes = new SimpleAes({ key: "YOUR_SECRET_KEY" }); 
+  return aes.encrypt(data);
+}
+
+function decrypt(encryption) {
+  const aes = new SimpleAes({ key: "YOUR_SECRET_KEY" });
+  return aes.decrypt(encryption);
+}
+
+const encrypted = encrypt({foo: ["Cat", "Dog"]});
+const decrypted = decrypt(encrypted);
+
+console.log({ encrypted }); // encrypted: T58DdEGPnxCULmVOZQLSp5KpHGVS7ywgeJ1eB5KJfpUSLPPnJUuxGF4=
+console.log({ decrypted }); // decrypted: { foo: [ 'Cat', 'Dog' ] }
 ```
 
 #### Thanks & Enjoy 😊
