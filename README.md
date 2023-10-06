@@ -95,14 +95,12 @@ or with lambda:
 ```js
 const aes = () => new SimpleAes({ key: "YOUR_SECRET_KEY" })
 
-const encrypt = (data: any) => aes().encrypt(data);
+const encrypt = (data) => aes().encrypt(data);
 
-const decrypt = (encryption: string) => aes().decrypt(encryption);
+const decrypt = (encryption) => aes().decrypt(encryption);
 
 const encrypted = encrypt({ foo: ["Cat", "Dog"] }); // encrypted: bxDUTrAOgAgwdbN8tgOXFlEzIGXl9pkmn0HfXHJnof6YjklXh/geKrU=
 const decrypted = decrypt(data); // decrypted: { foo: [ 'Cat', 'Dog' ] }
-
-console.log({})
 ```
 
 #### Thanks & Enjoy 😊
