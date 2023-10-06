@@ -91,6 +91,19 @@ const decrypted = decrypt(encrypted);
 console.log({ encrypted }); // encrypted: T58DdEGPnxCULmVOZQLSp5KpHGVS7ywgeJ1eB5KJfpUSLPPnJUuxGF4=
 console.log({ decrypted }); // decrypted: { foo: [ 'Cat', 'Dog' ] }
 ```
+or with lambda:
+```js
+const aes = () => new SimpleAes({ key: "YOUR_SECRET_KEY" })
+
+const encrypt = (data: any) => aes().encrypt(data);
+
+const decrypt = (encryption: string) => aes().decrypt(encryption);
+
+const encrypted = encrypt({ foo: ["Cat", "Dog"] }); // encrypted: bxDUTrAOgAgwdbN8tgOXFlEzIGXl9pkmn0HfXHJnof6YjklXh/geKrU=
+const decrypted = decrypt(data); // decrypted: { foo: [ 'Cat', 'Dog' ] }
+
+console.log({})
+```
 
 #### Thanks & Enjoy 😊
 
